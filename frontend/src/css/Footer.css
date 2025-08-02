@@ -1,5 +1,28 @@
-#footer {
-  background: linear-gradient(78deg, red, green, yellow);
-  height: 100px;
-  width: 100vw;
+.custom-footer {
+  background-color: #212529;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.light-theme .custom-footer {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+.custom-footer a {
+  color: #0dcaf0;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.custom-footer a:hover {
+  text-decoration: underline;
+}
+
+.custom-footer input::placeholder {
+  color: #999999;
+}
+
+.light-theme .custom-footer a {
+  color: #0d6efd;
 }

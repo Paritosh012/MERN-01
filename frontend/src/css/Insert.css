@@ -1,0 +1,50 @@
+/* Vibrant Dark Theme for Insert.jsx */
+.insert-page {
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  min-height: 100vh;
+  padding-top: 50px;
+  color: #f0f0f0;
+}
+
+.insert-card {
+  background-color: #2a2a40;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.insert-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #00d4ff;
+}
+
+.form-label {
+  color: #d0d0ff !important;
+}
+
+.form-control {
+  background-color: #44475a !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.submit-btn {
+  background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  padding: 10px;
+  width: 100%;
+}
+/* Change placeholder text color for dark theme */
+::placeholder {
+  color: #aaa !important; /* Light gray */
+  opacity: 1; /* Make sure it's fully visible */
+}
+
+/* For better browser support (optional) */
+input::placeholder,
+textarea::placeholder {
+  color: #aaa !important;
+}

@@ -1,36 +1,64 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
+import {
+  Navbar,
+  Nav,
+  Container,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import "../css/Header.css";
 
 const Header = () => {
+  const [darkMode, setDarkMode] = useState(true);
+
+  const toggleTheme = () => {
+    document.body.classList.toggle("light-theme");
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <>
-      <Navbar bg="dark" data-bs-theme="dark">
-        <Container>
-          <Navbar.Brand as={Link} to="home">
-            CRUD Operation
-          </Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="home">
-              Home
+    <Navbar
+      expand="lg"
+      className={`custom-navbar shadow-sm ${
+        darkMode ? "navbar-dark" : "navbar-light"
+      }`}
+    >
+      <Container>
+        <Navbar.Brand as={NavLink} to="/" className="fw-bold">
+          Student Manager
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto me-3">
+            <Nav.Link as={NavLink} to="/insert" className="active">
+              Add
             </Nav.Link>
-            <Nav.Link as={Link} to="insert">
-              Insert
+            <Nav.Link as={NavLink} to="/view" className="active">
+              View
             </Nav.Link>
-            <Nav.Link as={Link} to="display">
-              Display
-            </Nav.Link>
-            <Nav.Link as={Link} to="update">
+            <Nav.Link as={NavLink} to="/update" className="active">
               Update
             </Nav.Link>
-            <Nav.Link as={Link} to="search">
-              Search
+            <Nav.Link as={NavLink} to="/contact" className="active">
+              Contact
             </Nav.Link>
           </Nav>
-        </Container>
-      </Navbar>
-    </>
+          <Form className="d-flex me-3">
+            <FormControl
+              type="search"
+              placeholder="Search students..."
+              className="me-2 search-bar"
+              aria-label="Search"
+            />
+            <Button variant={darkMode ? "outline-info" : "outline-dark"}>
+              Search
+            </Button>
+          </Form>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

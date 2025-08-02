@@ -1,0 +1,50 @@
+.custom-navbar {
+  background-color: #212529;
+  transition: all 0.3s ease-in-out;
+}
+
+.light-theme .custom-navbar {
+  background-color: #f8f9fa;
+}
+
+.navbar-brand {
+  color: #0dcaf0 !important;
+  font-size: 1.6rem;
+}
+
+.nav-link {
+  color: #f8f9fa !important;
+  margin-left: 1rem;
+  transition: 0.2s;
+}
+
+.navbar-light .nav-link {
+  color: #343a40 !important;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #0dcaf0 !important;
+  text-decoration: underline;
+}
+
+.search-bar {
+  width: 200px;
+  border-radius: 10px;
+  padding: 0.4rem 0.8rem;
+  border: none;
+}
+
+body.light-theme {
+  background-color: #ffffff;
+  color: #212529;
+}
+
+body.light-theme .card {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+}
+
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
