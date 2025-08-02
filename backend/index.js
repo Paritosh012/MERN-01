@@ -13,7 +13,7 @@ mongoose.connect("mongodb://localhost:27017/studentDB").then(() => {
   console.log("DB Connected");
 });
 
-app.use("/", route);
+app.use("/students", route);
 
 app.listen(8000, () => {
   console.log("Server listening at http://localhost:8000");

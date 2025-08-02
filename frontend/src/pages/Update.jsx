@@ -1,23 +1,50 @@
+import { useEffect, useState } from "react";
 import "../css/Display.css";
+import axios from "axios";
+import BackendURL from "../utils/BackendUrl";
 
 const Update = () => {
+  const [students, setStudents] = useState([]);
+  const loadData = async () => {
+    let api = `${BackendURL}students/display`;
+    let res = await axios.get(api);
+    setStudents(res.data);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const deleteData = async (id) => {
+    let api = `${BackendURL}students/deleteData/${id}`;
+    await axios.delete(api);
+    loadData();
+  };
+
+  const ans = students.map((key) => {
+    return (
+      <tr>
+        <td> {key.Name} </td>
+        <td> {key.RollNo} </td>
+        <td> {key.Course} </td>
+        <td> {key.Mail} </td>
+        <td>
+          <button className="btn edit-btn">Edit</button>
+          <button
+            className="btn delete-btn"
+            onClick={() => {
+              deleteData(key._id);
+            }}
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    );
+  });
   return (
     <div className="display-container">
       <h2 className="display-title">Student Records</h2>
-
-      <div className="search-sort-bar">
-        <input
-          type="text"
-          className="search-input"
-          placeholder="Search by name or roll no..."
-        />
-        <select className="sort-select">
-          <option value="">Sort By</option>
-          <option value="name">Name</option>
-          <option value="rollno">Roll No</option>
-          <option value="course">Course</option>
-        </select>
-      </div>
 
       <table className="students-table">
         <thead>
@@ -25,26 +52,11 @@ const Update = () => {
             <th>Name</th>
             <th>Roll No</th>
             <th>Course</th>
-            <th>Duration</th>
-            <th>Fees</th>
-            <th>Institute</th>
+            <th>E-Mail</th>
             <th>Actions</th>
           </tr>
-        </thead> 
-        <tbody>
-          <tr>
-            <td>Ravi Sharma</td>
-            <td>101</td>
-            <td>Full Stack</td>
-            <td>6 months</td>
-            <td>₹25,000</td>
-            <td>Cybrom</td>
-            <td>
-              <button className="btn edit-btn">Edit</button>
-              <button className="btn delete-btn">Delete</button>
-            </td>
-          </tr>
-        </tbody>
+        </thead>
+        <tbody>{ans}</tbody>
       </table>
     </div>
   );

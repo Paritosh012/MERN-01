@@ -1,37 +1,34 @@
 import { useEffect, useState } from "react";
 import "../css/Display.css";
+import axios from "axios";
+import BackendURL from "../utils/BackendUrl";
 
 const Display = () => {
   const [students, setStudents] = useState([]);
-  const fetchStudents = async () => {
-    try {
-      const response = await axios.get(`${BackendURL}students/get`);
-      setStudents(response.data);
-    } catch (error) {
-      console.error("Error fetching data", error);
-    }
+  const loadData = async () => {
+    let api = `${BackendURL}students/display`;
+    let res = await axios.get(api);
+    setStudents(res.data);
   };
 
   useEffect(() => {
-    fetchStudents();
+    loadData();
   }, []);
+
+  const ans = students.map((key) => {
+    return (
+      <tr>
+        <td> {key.Name} </td>
+        <td> {key.RollNo} </td>
+        <td> {key.Course} </td>
+        <td> {key.Mail} </td>
+      </tr>
+    );
+  });
+
   return (
     <div className="display-container">
       <h2 className="display-title">Student Records</h2>
-
-      <div className="search-sort-bar">
-        <input
-          type="text"
-          className="search-input"
-          placeholder="Search by name or roll no..."
-        />
-        <select className="sort-select">
-          <option value="">Sort By</option>
-          <option value="name">Name</option>
-          <option value="rollno">Roll No</option>
-          <option value="course">Course</option>
-        </select>
-      </div>
 
       <table className="students-table">
         <thead>
@@ -40,11 +37,10 @@ const Display = () => {
             <th>Roll No</th>
             <th>Course</th>
             <th>E-Mail</th>
-         
           </tr>
         </thead>
         <tbody>
-          <tr>{/* Display Logic Will Be Here */}</tr>
+          {ans}
         </tbody>
       </table>
     </div>

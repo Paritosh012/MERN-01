@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const stuSchema = new mongoose.Schema({
-  Name: { type: String, required: true },
-  RollNo: { type: Number, required: true },
+  Name: { type: String },
+  RollNo: { type: Number },
   Course: { type: String },
   Mail: { type: String },
 });

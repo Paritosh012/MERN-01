@@ -3,20 +3,21 @@ import { Form, Button, Container, Card, Row, Col } from "react-bootstrap";
 import BackendURL from "../utils/BackendUrl";
 import axios from "axios";
 import "../css/Insert.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Insert = () => {
   const [input, setInput] = useState({
     name: "",
     rollno: "",
     course: "",
-    year: "",
     email: "",
   });
 
   const handleinput = (e) => {
     const { name, value } = e.target;
-    setInput((prev) => ({
-      ...prev,
+    setInput((values) => ({
+      ...values,
       [name]: value,
     }));
   };
@@ -24,13 +25,27 @@ const Insert = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const api = `${BackendURL}students/save`;
-    await axios.post(api, input);
-    alert("Student added successfully!");
+    const res = await axios.post(api, input);
+    toast.success("Student data saved successfully!", {
+      style: {
+        background: "#2e6dccff",
+        color: "#fff",
+        fontWeight: "bold",
+        width: "30vw",
+        textAlign: "center",
+      },
+    });
     setInput({ name: "", rollno: "", course: "", email: "" });
   };
 
   return (
     <div className="insert-page">
+      <ToastContainer
+        hideProgressBar={true}
+        theme="colored"
+        position="top-center"
+        autoClose={2000}
+      />
       <Container>
         <Row className="justify-content-center">
           <Col md={8} lg={6}>
