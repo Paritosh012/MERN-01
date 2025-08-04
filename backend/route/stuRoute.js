@@ -7,11 +7,13 @@ route.get("/", stuController.homePage);
 route.get("/students", stuController.homePage);
 
 route.post("/save", stuController.stuSave);
+
 route.get("/display", stuController.display);
 route.get("/update", stuController.update);
+route.get("/editData/:id", stuController.editData);
 
+route.put("/updateData/:id", stuController.updateData);
 
 route.delete("/deleteData/:id", stuController.deleteData);
-
 
 module.exports = route;

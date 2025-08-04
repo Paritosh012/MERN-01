@@ -10,7 +10,6 @@ const stuSave = async (req, res) => {
     Name: name,
     RollNo: rollno,
     Course: course,
-    AdminssionYear: year,
     Mail: email,
   });
   res.send("<h1>Saved successfully!</h1>");
@@ -32,4 +31,29 @@ const deleteData = async (req, res) => {
   res.send("<h1>Data Successfully Deleted</h1>  ");
 };
 
-module.exports = { stuSave, homePage, display, update, deleteData };
+const editData = async (req, res) => {
+  const { id } = req.params;
+  const Student = await stuModel.findById(id);
+  res.send(Student);
+};
+
+const updateData = async (req, res) => {
+  const { id } = req.params;
+  const Student = await stuModel.findByIdAndUpdate(id, {
+    Name: req.body.name,
+    RollNo: req.body.rollno,
+    Course: req.body.course,
+    Mail: req.body.email,
+  });
+  res.send(Student);
+};
+
+module.exports = {
+  stuSave,
+  homePage,
+  display,
+  update,
+  deleteData,
+  editData,
+  updateData,
+};
