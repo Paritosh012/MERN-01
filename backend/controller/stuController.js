@@ -21,10 +21,15 @@ const display = async (req, res) => {
   res.send(Student);
 };
 
+const update = async (req, res) => {
+  const Student = await stuModel.find();
+  res.send(Student);
+};
+
 const deleteData = async (req, res) => {
   const { id } = req.params;
   await stuModel.findByIdAndDelete(id);
-  res.send("Deleted");
+  res.send("<h1>Data Successfully Deleted</h1>  ");
 };
 
-module.exports = { stuSave, homePage, display, deleteData };
+module.exports = { stuSave, homePage, display, update, deleteData };

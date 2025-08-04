@@ -4,7 +4,6 @@ import BackendURL from "../utils/BackendUrl";
 import axios from "axios";
 import "../css/Insert.css";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const Insert = () => {
   const [input, setInput] = useState({
@@ -44,7 +43,7 @@ const Insert = () => {
         hideProgressBar={true}
         theme="colored"
         position="top-center"
-        autoClose={2000}
+        autoClose={400}
       />
       <Container>
         <Row className="justify-content-center">
