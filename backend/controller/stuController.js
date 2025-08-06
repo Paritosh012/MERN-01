@@ -39,12 +39,12 @@ const editData = async (req, res) => {
 
 const updateData = async (req, res) => {
   const { id } = req.params;
-  const { name, rollno, course, mail } = req.body;
+  const { Name, RollNo, Course, Mail } = req.body;
   const Student = await stuModel.findByIdAndUpdate(id, {
-    Name: name,
-    RollNo: rollno,
-    Course: course,
-    Mail: mail,
+    Name: Name,
+    RollNo: RollNo,
+    Course: Course,
+    Mail:Mail,
   });
   res.send(Student);
 };
