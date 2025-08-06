@@ -7,22 +7,12 @@ import { toast, ToastContainer } from "react-toastify";
 
 const Edit = () => {
   const { id } = useParams();
-  const [student, setStudent] = useState({
-    name: "",
-    rollno: "",
-    course: "",
-    email: "",
-  });
+  const [student, setStudent] = useState({});
 
   const loadData = async () => {
     let api = `${BackendURL}students/editData/${id}`;
     let res = await axios.get(api);
-    setStudent({
-      name: res.data.Name || "",
-      rollno: res.data.RollNo || "",
-      course: res.data.Course || "",
-      email: res.data.Mail || "",
-    });
+    setStudent(res.data);
   };
 
   const handleInput = (e) => {
@@ -53,9 +43,9 @@ const Edit = () => {
             <label>Name:</label>
             <input
               type="text"
-              name="name"
+              name="Name"
               placeholder="Enter name"
-              value={student.name}
+              value={student.Name}
               onChange={handleInput}
             />
           </div>
@@ -63,9 +53,9 @@ const Edit = () => {
             <label>Roll No:</label>
             <input
               type="text"
-              name="rollno"
+              name="RollNo"
               placeholder="Enter roll number"
-              value={student.rollno}
+              value={student.RollNo}
               onChange={handleInput}
             />
           </div>
@@ -73,9 +63,9 @@ const Edit = () => {
             <label>Course:</label>
             <input
               type="text"
-              name="course"
+              name="Course"
               placeholder="Enter course"
-              value={student.course}
+              value={student.Course}
               onChange={handleInput}
             />
           </div>
@@ -84,9 +74,9 @@ const Edit = () => {
             <label>Email:</label>
             <input
               type="email"
-              name="email"
+              name="Mail"
               placeholder="Enter email"
-              value={student.email}
+              value={student.Mail}
               onChange={handleInput}
             />
           </div>

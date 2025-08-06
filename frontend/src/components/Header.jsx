@@ -13,11 +13,6 @@ import "../css/Header.css";
 const Header = () => {
   const [darkMode, setDarkMode] = useState(true);
 
-  const toggleTheme = () => {
-    document.body.classList.toggle("light-theme");
-    setDarkMode(!darkMode);
-  };
-
   return (
     <Navbar
       expand="lg"
