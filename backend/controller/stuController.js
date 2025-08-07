@@ -61,7 +61,7 @@ module.exports = {
   homePage,
   display,
   update,
-  deleteData,
+  deleteData,  
   editData,
   updateData,
   searchData,
