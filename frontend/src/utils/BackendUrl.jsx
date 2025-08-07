@@ -1,2 +1,2 @@
-const BackendURL = "mern-01-re771xy1l-paritosh-jaiswals-projects.vercel.app/";
+const BackendURL = "https://mern-01-xt72.onrender.com/";
 export default BackendURL;
