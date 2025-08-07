@@ -39,18 +39,10 @@ const Header = () => {
             <Nav.Link as={NavLink} to="/contact" className="active">
               Contact
             </Nav.Link>
-          </Nav>
-          <Form className="d-flex me-3">
-            <FormControl
-              type="search"
-              placeholder="Search students..."
-              className="me-2 search-bar"
-              aria-label="Search"
-            />
-            <Button variant={darkMode ? "outline-info" : "outline-dark"}>
+            <Nav.Link as={NavLink} to="/search" className="active">
               Search
-            </Button>
-          </Form>
+            </Nav.Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

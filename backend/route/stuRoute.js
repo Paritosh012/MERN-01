@@ -16,4 +16,6 @@ route.put("/updateData/:id", stuController.updateData);
 
 route.delete("/deleteData/:id", stuController.deleteData);
 
+route.post("/search",stuController.searchData)
+
 module.exports = route;

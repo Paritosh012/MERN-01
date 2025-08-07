@@ -44,8 +44,15 @@ const updateData = async (req, res) => {
     Name: Name,
     RollNo: RollNo,
     Course: Course,
-    Mail:Mail,
+    Mail: Mail,
   });
+  res.send(Student);
+};
+
+const searchData = async (req, res) => {
+  const { rollno } = req.body;
+  const Student = await stuModel.find({ RollNo: rollno });
+  console.log(rollno);
   res.send(Student);
 };
 
@@ -57,4 +64,5 @@ module.exports = {
   deleteData,
   editData,
   updateData,
+  searchData,
 };

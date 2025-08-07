@@ -9,9 +9,13 @@ app.use(express.json());
 
 app.use(cors());
 
-mongoose.connect("mongodb://localhost:27017/studentDB").then(() => {
-  console.log("DB Connected");
-});
+mongoose
+  .connect(
+    "mongodb+srv://jaiswalparitosh8:cIjozVx45WBs76R7@cluster0.d6rrtp1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  )
+  .then(() => {
+    console.log("DB Connected");
+  });
 
 app.use("/students", route);
 
