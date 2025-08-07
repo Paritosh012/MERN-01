@@ -10,7 +10,7 @@ const Display = () => {
     let res = await axios.get(api);
     setStudents(res.data);
   };
-
+ 
   useEffect(() => {
     loadData();
   }, []);

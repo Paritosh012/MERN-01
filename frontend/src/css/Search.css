@@ -1,19 +1,19 @@
-/* Search.css */
-
+/* Vibrant Dark Theme for Search.jsx */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f0f2f5;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
   margin: 0;
   padding: 0;
+  color: #f0f0f0;
 }
 
 .search-container {
-  background-color: white;
+  background-color: #2a2a40;
   width: 400px;
   margin: 50px auto 20px;
   padding: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
   text-align: center;
 }
 
@@ -22,6 +22,7 @@ body {
   font-weight: bold;
   margin-bottom: 10px;
   display: block;
+  color: #d0d0ff;
 }
 
 .search-input {
@@ -29,30 +30,33 @@ body {
   padding: 10px;
   margin: 15px 0;
   font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  background-color: #44475a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
   transition: 0.3s ease;
 }
 
 .search-input:focus {
-  border-color: #007bff;
+  border: none;
   outline: none;
-  box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 6px rgba(0, 212, 255, 0.8);
 }
 
 .search-button {
   padding: 10px 20px;
-  background-color: #007bff;
+  background: linear-gradient(45deg, #00d2ff, #3a7bd5);
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 30px;
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .search-button:hover {
-  background-color: #0056b3;
+  background: linear-gradient(45deg, #009bd9, #2a5cad);
 }
 
 .table-container {
@@ -64,21 +68,36 @@ body {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  background-color: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  background-color: #2a2a40;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .search-table th, .search-table td {
   padding: 12px;
   text-align: left;
-  border: 1px solid #ddd;
+  border: 1px solid #444;
+  color: #f0f0f0;
 }
 
 .search-table thead {
-  background-color: #007bff;
+  background-color: #3a7bd5;
   color: white;
 }
 
 .search-table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #3b3b52;
+}
+
+.search-table tbody tr:hover {
+  background-color: #505072;
+}
+
+/* Placeholder text styling for dark theme */
+::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: #aaa !important;
+  opacity: 1;
 }
